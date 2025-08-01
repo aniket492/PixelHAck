@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aetherium Estates - An Animated Showcase</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+
+    <!-- Pre-Loader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-counter">
+                <span id="preloader-count">0</span>
+                <span>- 100</span>
+            </div>
+            <h1 class="preloader-title">
+                <div class="preloader-line-wrapper">
+                    <span class="line-1">YOUR WEB EXPERIENCE</span>
+                </div>
+                <div class="preloader-line-wrapper">
+                    <span class="line-2">WILL BEGIN <span class="blink">NOW</span></span>
+                </div>
+            </h1>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="logo">Aetherium</div>
+        <button class="menu-toggle" aria-label="Open Menu">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+        </button>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+        <div class="nav-links-container">
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link"><span>Home</span></a></li>
+                <li><a href="#properties" class="nav-link"><span>Properties</span></a></li>
+                <li><a href="#philosophy" class="nav-link"><span>Philosophy</span></a></li>
+                <li><a href="#agents" class="nav-link"><span>Agents</span></a></li>
+                <li><a href="#contact" class="nav-link"><span>Contact</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main id="main-content">
+
+        <!-- Hero Section (Video Updated) -->
+        <section class="hero-section" id="home">
+            <div class="hero-video-container">
+                <!-- The video source below has been updated to your "Home Tour.mp4" file. -->
+                <!-- Make sure the video file is in the same directory as this HTML file. -->
+                <video src="Home Tour.mp4" autoplay muted loop playsinline class="hero-video"></video>
+            </div>
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    <span class="hero-title-line" data-text="LIVE">LIVE</span>
+                    <span class="hero-title-line" data-text="BEAUTIFULLY">BEAUTIFULLY</span>
+                </h2>
+            </div>
+        </section>
+
+        <!-- Properties Section -->
+        <section class="properties-section" id="properties">
+            <div class="section-title-container">
+                <h2>Featured Properties</h2>
+                <p>A curated selection of our finest listings.</p>
+            </div>
+            <div class="properties-creative-grid">
+                <!-- Property cards will be dynamically inserted here by script.js -->
+            </div>
+        </section>
+
+        <!-- Philosophy Marquee Section -->
+        <section class="philosophy-section" id="philosophy">
+             <div class="section-title-container light">
+                <h2>Our Philosophy</h2>
+                <p>The pillars that define the Aetherium experience.</p>
+            </div>
+            <div class="philosophy-marquee">
+                <div class="marquee-track">
+                    <!-- Philosophy cards will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Agents List -->
+        <section class="agents-section" id="agents">
+            <div class="section-title-container">
+                <h2>Meet Our Agents</h2>
+                <p>The experts dedicated to finding your home.</p>
+            </div>
+            <ul class="agents-list">
+                <li class="agent-item" data-img="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80">
+                    <span class="agent-name">James Anderson</span><span class="agent-title">Lead Broker</span></li>
+                <li class="agent-item" data-img="https://plus.unsplash.com/premium_photo-1661778544419-41b124812d7c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                    <span class="agent-name">Priya Sharma</span><span class="agent-title">Luxury Specialist</span></li>
+                <li class="agent-item" data-img="https://plus.unsplash.com/premium_photo-1661665318707-d681aa75e137?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                    <span class="agent-name">Elena Rodriguez</span><span class="agent-title">Commercial Expert</span></li>
+                <li class="agent-item" data-img="https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1379&q=80">
+                    <span class="agent-name">David Chen</span><span class="agent-title">Rental Manager</span></li>
+            </ul>
+             <div class="agent-image-container"></div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p>Your journey towards extraordinary living starts here. Contact us to schedule a private consultation and discover the Aetherium difference.</p>
+                    <ul class="contact-details">
+                        <li><strong>Address:</strong> 123 Luxury Lane, Mumbai, MH 400050, India</li>
+                        <li><strong>Phone:</strong> +91 22 1234 5678</li>
+                        <li><strong>Email:</strong> concierge@aetherium.est</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Aetherium Estates. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
