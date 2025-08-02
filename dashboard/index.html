@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Aetherium Estates</title>
+    
+    <!-- Google Fonts & Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Main Dashboard Stylesheet -->
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="/index.html" class="logo">Aetherium</a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a class="nav-item active" data-target="overview"><i data-feather="home"></i><span>Overview</span></a></li>
+                    <li><a class="nav-item" data-target="saved-properties"><i data-feather="heart"></i><span>Saved Properties</span></a></li>
+                    <li><a class="nav-item" data-target="mortgage-calculator"><i data-feather="percent"></i><span>Mortgage Calculator</span></a></li>
+                    <li><a class="nav-item" data-target="profile"><i data-feather="user"></i><span>Profile</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div id="user-button"></div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1 id="main-title">Overview</h1>
+                <button class="mobile-menu-toggle" aria-label="Open Menu"><i data-feather="menu"></i></button>
+            </header>
+
+            <div class="content-panels">
+                <!-- Overview Panel -->
+                <section id="overview" class="panel active">
+                    <h2 id="welcome-message">Welcome Back!</h2>
+                    <p class="subtitle">Here's a snapshot of your activity and market trends.</p>
+                    <div class="overview-grid">
+                        <div class="stat-card">
+                            <i data-feather="heart"></i>
+                            <h3>Saved Properties</h3>
+                            <p id="saved-props-count" class="stat-number">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <i data-feather="eye"></i>
+                            <h3>Property Views</h3>
+                            <p class="stat-number">28</p>
+                        </div>
+                        <div class="stat-card">
+                            <i data-feather="message-square"></i>
+                            <h3>Agent Messages</h3>
+                            <p class="stat-number">3</p>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Your Activity</h3>
+                            <canvas id="activityChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Saved Properties Panel -->
+                <section id="saved-properties" class="panel">
+                    <div class="panel-header">
+                        <button id="add-property-btn" class="submit-button"><i data-feather="plus"></i> Bookmark Property</button>
+                    </div>
+                    <p class="subtitle">Your curated list of dream homes. Click any property to remove it from your list.</p>
+                    <div id="saved-properties-list" class="property-list">
+                        <div id="no-saved-props" class="placeholder">
+                            <i data-feather="list"></i>
+                            <p>You haven't saved any properties yet. Click "Add New Property" to start building your collection.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mortgage Calculator Panel -->
+                <section id="mortgage-calculator" class="panel">
+                    <p class="subtitle">Estimate your monthly mortgage payments. This calculator provides an estimate for principal and interest and does not include taxes, insurance, or HOA fees.</p>
+                    <div class="calculator-grid">
+                        <div class="calculator-card">
+                            <div class="form-group">
+                                <label for="loanAmount">Home Price ($)</label>
+                                <input type="number" id="loanAmount" value="400000">
+                            </div>
+                            <div class="form-group">
+                                <label for="downPayment">Down Payment ($)</label>
+                                <input type="number" id="downPayment" value="80000">
+                            </div>
+                            <div class="form-group">
+                                <label for="interestRate">Interest Rate (%)</label>
+                                <input type="number" id="interestRate" step="0.1" value="6.2">
+                            </div>
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term (Years)</label>
+                                <input type="number" id="loanTerm" value="30">
+                            </div>
+                            <button id="calculateBtn" class="submit-button">Calculate</button>
+                        </div>
+                        <div class="calculator-result-card">
+                             <h3>Estimated Monthly Payment</h3>
+                             <p id="monthly-payment-result">$0.00</p>
+                             <div class="chart-container">
+                                <canvas id="mortgage-chart"></canvas>
+                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Profile Panel -->
+                <section id="profile" class="panel">
+                    <h2>Profile & Settings</h2>
+                    <p class="subtitle">Manage your account details and preferences.</p>
+                    <div class="profile-grid">
+                        <div class="profile-card" id="profile-info">
+                            <!-- Profile info will be injected here -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Property Modal -->
+    <div id="add-property-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close"><i data-feather="x"></i></button>
+            <h2>Select a Property to Save</h2>
+            <div id="available-properties-list" class="property-list modal-scroll">
+                <!-- Available properties for saving will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Clerk and App Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js" type="text/javascript"></script>
+    <script type="module" src="dashboard.js"></script>
+</body>
+</html>
