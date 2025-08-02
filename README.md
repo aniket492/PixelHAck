@@ -5,8 +5,14 @@ It consists of two primary components: a visually stunning, animated public land
 and a secure, feature-rich user dashboard for registered users to manage their property interests and personal information.
 The project emphasizes a high-end user experience through elegant design, smooth animations, and robust functionality.
 
-# Note : The default page that the user is going to see is landing page made with given design elements. If the user is not signed in he'll see
-design like below -  
+# Note : 
+The default page that the user is going to see is landing page made with given design elements. If the user is not signed in he'll see
+design like below -  ![Screenshot of the landing page without Sign in](./Assets/First Page(Without Login).png)
+
+After Signed in User will see something like this - ![Screenshot of the landing page after Sign in](./Assets/First Page(After Sign in).png)
+
+Dashboard is only visible after Signed in - ![Screenshot of the Menu Dropdown](./Assets/Menu Dropdown.png)
+
 
 ## 📜 Table of Contents
 
